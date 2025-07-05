@@ -1,0 +1,24 @@
+{
+    "name": "yourtofolio-proto",
+    "version": "1.0.0",
+    "description": "To install dependencies:",
+    "module": "index.ts",
+    "private": true,
+    "type": "module",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "protoc:gen": "protoc --proto_path=. --ts_out=types --ts_opt=server_generic protos/**/*.proto"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@protobuf-ts/plugin": "^2.11.1"
+    },
+    "devDependencies": {
+        "@types/bun": "latest"
+    },
+    "peerDependencies": {
+        "typescript": "^5"
+    }
+}

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package protos.shared.user.v1;
+
+message UserCore {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+  int32 age = 4;
+  optional string password = 5; // This should be hashed in practice
+  google.protobuf.Timestamp created_at = 6;
+}

@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package protos.shared.common.v1;
+
+message Status {
+  string code = 1;
+  string message = 2;
+}

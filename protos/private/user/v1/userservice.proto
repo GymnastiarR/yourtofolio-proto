@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package protos.private.user.v1;
+
+import "protos/shared/user/v1/user.proto";
+import "protos/shared/common/v1/status.proto";
+
+service UserService {
+  rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {};
+  rpc GetUserByID(GetUserByIDRequest) returns (GetUserByIDResponse) {};
+  rpc GetUserByEmail(GetUserByEmailRequest) returns (GetUserByEmailResponse) {};
+}
+
+message CreateUserRequest {
+    string name = 1;
+    string email = 2;
+    int32 age = 3;
+    string password = 4;
+}
+
+message CreateUserResponse {
+    protos.shared.common.v1.Status status = 1;
+}
+
+message GetUserByIDRequest {
+    string user_id = 1;
+}
+
+message GetUserByIDResponse {
+    protos.shared.user.v1.UserCore user = 1;
+    protos.shared.common.v1.Status status = 2;
+}
+
+message GetUserByEmailRequest {
+    string email = 1;
+}
+
+message GetUserByEmailWithPasswordResponse {
+    protos.shared.user.v1.UserCore user = 1;
+    string password = 2;
+}
+
+message GetUserByEmailResponse {
+    GetUserByEmailWithPasswordResponse data = 1;
+    protos.shared.common.v1.Status status = 2;
+}
