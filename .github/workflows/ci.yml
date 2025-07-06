@@ -27,7 +27,7 @@ jobs:
           # Perintah untuk menginstall dependencies (jika ada) dan kompilasi proto
           # Contoh:
           npm install
-          npm run proto:gen
+          npm run protoc:gen
         
       - name: Publish to GitHub Packages
         run: |
