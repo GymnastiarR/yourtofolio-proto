@@ -6,10 +6,10 @@ To install dependencies:
 bun install
 ```
 
-To run:
 
+Generate TypeScript Protobuf
 ```bash
-bun run index.ts
+bun run protoc:gen
 ```
 
 This project was created using `bun init` in bun v1.2.18. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
