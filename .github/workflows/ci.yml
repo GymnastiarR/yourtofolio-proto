@@ -3,33 +3,35 @@ name: Compile and Publish TypeScript Package
 on:
   push:
     branches:
-      - master 
+      - master
+    paths: 
+      - 'protos/**'
+ 
 jobs:
-  build-and-publish:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write # Beri izin untuk menulis ke GitHub Packages
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       # Tambahkan langkah untuk setup Node.js
-      - name: Setup Node.js
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies and compile proto
+        run: |
+          bun install
+          bun run protoc:gen
+      
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '22'
           registry-url: 'https://npm.pkg.github.com'
 
-      - name: Install dependencies and compile proto
+      - name: Build TypeScript package
         run: |
-          # Perintah untuk menginstall dependencies (jika ada) dan kompilasi proto
-          # Contoh:
-          npm install
-          npm run protoc:gen
-        
-      - name: Publish to GitHub Packages
-        run: |
-          cd types # Pindah ke direktori paket
-          npm publish
+          cd types
+          npm publish # Gunakan --dry-run untuk memastikan tidak ada kesalahan sebelum benar-benar publish

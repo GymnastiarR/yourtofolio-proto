@@ -36,11 +36,14 @@ message GetUserByEmailRequest {
 }
 
 message GetUserByEmailWithPasswordResponse {
-    protos.shared.user.v1.UserCore user = 1;
-    string password = 2;
+    string user_id = 1;
+    string name = 2;
+    string email = 3;
+    int32 age = 4;
+    string password = 5;
 }
 
 message GetUserByEmailResponse {
-    GetUserByEmailWithPasswordResponse data = 1;
+    GetUserByEmailWithPasswordResponse user = 1;
     protos.shared.common.v1.Status status = 2;
 }
