@@ -33,3 +33,5 @@ jobs:
         run: |
           cd types
           npm publish # Gunakan --dry-run untuk memastikan tidak ada kesalahan sebelum benar-benar publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
