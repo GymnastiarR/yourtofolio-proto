@@ -1,0 +1,18 @@
+{
+    "name": "@gymnastiarr/yourtofolio-grpc-types",
+    "version": "0.0.3",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/GymnastiarR/yourtofolio-proto.git"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com"
+    }
+}
