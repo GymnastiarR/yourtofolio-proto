@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - master
-    paths: 
-      - 'protos/**'
  
 jobs:
   build:
