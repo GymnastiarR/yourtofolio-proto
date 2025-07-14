@@ -1,9 +1,10 @@
 syntax = "proto3";
 
-package protos.private.user.v1;
+import "shared/user/v1/user.proto";
+import "shared/common/v1/status.proto";
 
-import "protos/shared/user/v1/user.proto";
-import "protos/shared/common/v1/status.proto";
+package private.user.v1;
+
 
 service UserService {
   rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {};
@@ -19,7 +20,7 @@ message CreateUserRequest {
 }
 
 message CreateUserResponse {
-    protos.shared.common.v1.Status status = 1;
+    shared.common.v1.Status status = 1;
 }
 
 message GetUserByIDRequest {
@@ -27,8 +28,8 @@ message GetUserByIDRequest {
 }
 
 message GetUserByIDResponse {
-    protos.shared.user.v1.UserCore user = 1;
-    protos.shared.common.v1.Status status = 2;
+    shared.user.v1.UserCore user = 1;
+    shared.common.v1.Status status = 2;
 }
 
 message GetUserByEmailRequest {
@@ -45,5 +46,5 @@ message GetUserByEmailWithPasswordResponse {
 
 message GetUserByEmailResponse {
     GetUserByEmailWithPasswordResponse user = 1;
-    protos.shared.common.v1.Status status = 2;
+    shared.common.v1.Status status = 2;
 }

@@ -8,7 +8,7 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "protoc:gen": "protoc --proto_path=. --ts_out=types --ts_opt=server_generic protos/**/*.proto"
+        "protoc:gen": "find protos -name '*.proto' | xargs protoc --proto_path=protos --ts_out=types --ts_opt=server_generic"
     },
     "author": "",
     "license": "ISC",

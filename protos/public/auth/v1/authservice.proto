@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package protos.public.auth.v1;
+package public.auth.v1;
 
-import "protos/shared/common/v1/status.proto";
+import "shared/common/v1/status.proto";
 
 service AuthService {
   rpc Login(LoginRequest) returns (LoginResponse);
@@ -28,5 +28,5 @@ message RegisterRequest {
 }
 
 message RegisterResponse {
-  protos.shared.common.v1.Status status = 1;
+  shared.common.v1.Status status = 1;
 }

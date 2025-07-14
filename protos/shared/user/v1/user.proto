@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
 
-package protos.shared.user.v1;
+package shared.user.v1;
 
 message UserCore {
   string id = 1;
